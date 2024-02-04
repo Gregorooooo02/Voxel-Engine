@@ -3,9 +3,20 @@ project(VulkanLearn)
 
 set(CMAKE_CXX_STANDARD 17)
 
-find_package(Vulkan REQUIRED)
+file(GLOB_RECURSE SOURCE_FILES
+    *.c
+    *.cpp)
 
-add_executable(VulkanLearn main.cpp
-)
+file(GLOB_RECURSE HEADER_FILES
+    *.h
+    *.hpp)
+
+find_package(Vulkan REQUIRED)
+find_package(glfw3 REQUIRED)
+
+add_executable(VulkanLearn ${SOURCE_FILES} ${HEADER_FILES})
+
+target_compile_definitions(VulkanLearn PRIVATE GLFW_INCLUDE_VULKAN)
 
 target_link_libraries(VulkanLearn Vulkan::Vulkan)
+target_link_libraries(VulkanLearn glfw)
