@@ -3,18 +3,12 @@ project(VulkanLearn)
 
 set(CMAKE_CXX_STANDARD 17)
 
-file(GLOB_RECURSE SOURCE_FILES
-    *.c
-    *.cpp)
+add_executable(VulkanLearn main.cpp
+    src/HelloTriangleApp.cpp
+    lib/HelloTriangleApp.h)
 
-file(GLOB_RECURSE HEADER_FILES
-    *.h
-    *.hpp)
-
+find_package(glfw3 3.3 REQUIRED)
 find_package(Vulkan REQUIRED)
-find_package(glfw3 REQUIRED)
-
-add_executable(VulkanLearn ${SOURCE_FILES} ${HEADER_FILES})
 
 target_compile_definitions(VulkanLearn PRIVATE GLFW_INCLUDE_VULKAN)
 
