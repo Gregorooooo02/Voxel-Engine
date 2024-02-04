@@ -1,7 +1,6 @@
 #include "lib/HelloTriangleApp.h"
 
 #include <iostream>
-#include <stdexcept>
 #include <cstdlib>
 
 int main() {
